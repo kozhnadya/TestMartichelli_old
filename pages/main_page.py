@@ -1,3 +1,5 @@
+#класс Главной страницы
+
 from pages.base_page import BasePage
 from pages.locators import MainPageLocators
 from settings import base_page_url
@@ -33,6 +35,7 @@ class MainPage(BasePage):
         tab.click()
         return tab
 
+    #получить список товаров из вкладки "Товары на главном"
     def get_list_of_products_sale(self):
         images = self.find_elements(locator=MainPageLocators.prd_sale_images)
         names = self.find_elements(locator=MainPageLocators.prd_sale_names)
@@ -40,6 +43,7 @@ class MainPage(BasePage):
         trade_price = self.find_elements(locator=MainPageLocators.prd_sale_trade_price)
         return images, names, retail_price, trade_price
 
+    # получить список товаров из вкладки "Новинки"
     def get_list_of_products_new(self):
         images = self.find_elements(locator=MainPageLocators.prd_new_images)
         names = self.find_elements(locator=MainPageLocators.prd_new_names)
@@ -48,6 +52,7 @@ class MainPage(BasePage):
         ico = self.find_elements(locator=MainPageLocators.prd_new_ico)
         return images, names, retail_price, trade_price, ico
 
+    # получить список товаров из вкладки "Хит продаж"
     def get_list_of_products_best(self):
         images = self.find_elements(locator=MainPageLocators.prd_best_images)
         names = self.find_elements(locator=MainPageLocators.prd_best_names)

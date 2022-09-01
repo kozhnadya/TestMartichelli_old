@@ -1,3 +1,4 @@
+#класс страницы авторизации
 import selenium.common.exceptions
 from pages.base_page import BasePage
 from pages.locators import AuthPageLocators

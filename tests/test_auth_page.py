@@ -1,4 +1,5 @@
-import time
+# тестирование страницы авторизации на сайте
+
 import pytest
 from pages.auth_page import AuthPage
 import settings
@@ -12,12 +13,11 @@ def test_auth_page(browser):
     assert page.get_error_message.text == ''
     page.click_auth_btn()
     # ожидаем загрузку страницы личного кабинета
-    #wait = WebDriverWait(pytest.driver, 10).until(EC.presence_of_element_located((By.ID, "all_my_pets")))
     assert page.get_relative_link() == settings.user_profile.replace(settings.base_page_url, '')
-    #assert page.find_element(locator=UserProfileLocators.u_prf_message).text != ""
 
 
 #негативный тест на авторизацию
+#проверка вводом различных значений в поле ввода
 @pytest.mark.parametrize('n_email',
                          ['',
                           settings.generate_string(255),
@@ -58,10 +58,6 @@ def test_auth_page_negativ(browser, n_email, n_pass):
     page = AuthPage(browser)
     page.enter_email(n_email)
     page.enter_pass(n_pass)
-    time.sleep(5)
     page.click_auth_btn()
     #проверяем что остались на сайте авторизации
     assert page.get_relative_link() == settings.auth_page_url.replace(settings.base_page_url, '')
-    time.sleep(3)
-
-

@@ -1,3 +1,4 @@
+#класс шапки сайта
 from pages.base_page import BasePage
 from pages.locators import HeaderLocators
 
@@ -7,12 +8,15 @@ class Header(BasePage):
         super().__init__(driver, url=url)
         self.go_to_site()
 
+    # нажатие на ссылку "Сравнение"
     def click_compare_link(self):
         self.find_element(locator=HeaderLocators.compare_link).click()
 
+    # нажатие на ссылку "Корзина"
     def click_shop_cart_link(self):
         self.find_element(locator=HeaderLocators.shop_cart_link).click()
 
+    # нажатие на Логотип сайта
     def click_logo_link(self):
         self.find_element(locator=HeaderLocators.logo_link).click()
 
@@ -36,5 +40,6 @@ class Header(BasePage):
     def click_delivery_link(self):
         self.find_element(locator=HeaderLocators.delivery_link).click()
 
+    # нажатие на кнопку "Обратная связь"
     def click_callback_btn(self):
         self.find_element(locator=HeaderLocators.callback_btn).click()

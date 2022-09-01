@@ -1,6 +1,4 @@
 #тестирование Шапки на различных страницах сайта
-
-import time
 import pytest
 from pages.header import Header
 from pages.search_page import SearchPage
@@ -268,7 +266,6 @@ def test_click_table_size_link(browser, v_url):
     assert page.driver.current_url == settings.table_size_page_url
 
 #тест ссылки "Условия сотрудничества"
-#@pytest.mark.parametrize('v_url', [settings.base_page_url], ids=['from main page'])
 @pytest.mark.parametrize('v_url',
                          [settings.base_page_url,
                           settings.catalog_page_url,
@@ -326,5 +323,4 @@ def test_click_business_link(browser, v_url):
 def test_click_callback_btn(browser, v_url):
     page = Header(browser, url=v_url)
     page.click_callback_btn()
-    time.sleep(5)
     assert page.find_element(locator=CallbackLocators.callback_title).text == "Обратный звонок".upper()

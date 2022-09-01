@@ -1,3 +1,4 @@
+#тестирование результатов поиска
 from pages.search_page import SearchPage
 from pages.locators import SearchLocators, ProductLocators
 import settings

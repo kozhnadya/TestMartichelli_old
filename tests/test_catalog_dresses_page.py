@@ -1,4 +1,4 @@
-import time
+#тестируем страницу с товарами "Платье"
 from pages.catalog_dresses_page import CatalogDressesPage
 from pages.locators import ProductPageLocators
 
@@ -27,7 +27,6 @@ def test_check_name_product(browser):
 def test_sort_expensive_to_cheap(browser):
     page = CatalogDressesPage(browser)
     page.sort_expensive_to_cheap()
-    time.sleep(5)
     prices = page.get_product_prices()
     for i in range(len(prices)-1):
         assert int(prices[i].text.replace(' ', '')) >= int(prices[i+1].text.replace(' ',''))
@@ -37,7 +36,6 @@ def test_sort_expensive_to_cheap(browser):
 def test_sort_expensive_to_cheap(browser):
     page = CatalogDressesPage(browser)
     page.sort_cheap_to_expensive()
-    time.sleep(5)
     prices = page.get_product_prices()
     for i in range(len(prices)-1):
         assert int(prices[i].text.replace(' ', '')) <= int(prices[i+1].text.replace(' ',''))

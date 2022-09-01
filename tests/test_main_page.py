@@ -1,3 +1,4 @@
+# тестирование Главной страницы сайта
 from pages.main_page import MainPage
 
 
